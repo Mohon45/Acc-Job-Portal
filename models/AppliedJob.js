@@ -1,18 +1,16 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
-// const valid = require("validator");
 
-// schema design
-const jobSchema = mongoose.Schema(
+const appliedJobSchema = mongoose.Schema(
   {
-    jobTitle: {
+    fullName: {
       type: String,
-      required: [true, "Please provide a title for this job."],
+      required: [true, "Please provide your FullName"],
       trim: true,
       lowercase: true,
       minLength: [3, "job title must be at least 3 characters."],
     },
-    companyName: {
+    email: {
       type: String,
       required: [true, "Please provide a Company Name"],
       trim: true,
@@ -66,21 +64,6 @@ const jobSchema = mongoose.Schema(
   }
 );
 
-const Job = mongoose.model("Job", jobSchema);
+const Job = mongoose.model("Applied-Job", appliedJobSchema);
 
 module.exports = Job;
-
-/*
-{
-    "jobTitle": "Junior Frontend Developer",
-    "companyName": "Programming Hero",
-    "description": "Junior Frontend Developer description is here",
-    "jobType": "internship",
-    "workType": "Remotely",
-    "location": "Bangladesh",
-    "experience": "Freshers",
-    "salary": "10000 - 15000"
-}
-
-
-*/

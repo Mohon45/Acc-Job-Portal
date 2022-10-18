@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const userRoute = require("./routes/user.route");
 const hiringManagerRoute = require("./routes/hiringManager.route");
+const candidateRoute = require("./routes/candidate.route");
 
 // database connections
 // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.m0coh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -24,6 +25,7 @@ app.use(express.json());
 
 app.use("/user/", userRoute);
 app.use("/", hiringManagerRoute);
+app.use("/", candidateRoute);
 
 app.get("/", (req, res) => {
   res.send("Job Portal Server is Running!");
